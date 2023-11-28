@@ -1,46 +1,90 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 
 
 const SearchPage = () => {
+  const router = useRouter();
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [searchText, setSearchText] = useState('');
-
+  // New state variables for the extended schema
+  const [perkName, setPerkName] = useState('');
+  const [assetAddress, setAssetAddress] = useState('');
+  const [factoryAddress, setFactoryAddress] = useState('');
+// search.tsx
   const categories = ['Category 1', 'Category 2', 'Category 3'];
   const types = ['Type 1', 'Type 2', 'Type 3'];
 
   const handleSearch = () => {
-    console.log('Searching with:', selectedCategory, selectedType, isChecked, searchText);
+    console.log('Searching with:', {
+      selectedCategory,
+      selectedType,
+      isChecked,
+      searchText,
+      perkName,
+      assetAddress,
+      factoryAddress,
+    });
+
+    // Perform your search logic here
+
+    // Construct the search query or parameters based on your logic
+    const queryParams = {
+      category: selectedCategory,
+      type: selectedType,
+      checked: isChecked,
+      text: searchText,
+      // ... add other parameters as needed
+    };
+
+    // Use Next.js's router to navigate to the search result page
+    router.push({
+      pathname: '/searchResults', // Update with your actual search result page path
+      query: queryParams,
+    });
   };
 
   return (
     <>
-    <Navbar />
-    <div className="p-8 max-w-3xl mx-auto text-center">
-      <h1 className="text-5xl font-bold mb-8 text-white">Search NFT Perks</h1>
-      <div className="flex space-x-4 mb-6">
-        {/* Category Dropdown */}
-        <div>
-          <label className="block text-lg font-medium text-white mb-2">Category</label>
-          <select
-            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+      <Navbar />
+      <div className="mb-6 absolute" style={{ top: '31%', right: '27%', transform: 'translate(50%, -50%) scale(1.5)' }}>  {/* Checkbox */}
+  <div className="relative">
+    <div className="flex items-center">
+      <input
+        type="checkbox"
+        id="isChecked"
+        className="mr-2 custom-checkbox"
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+      />
+      <label htmlFor="isChecked" className="text-lg font-medium text-white">
+        Redeemable
+      </label>
+    </div>
+  </div>
+</div>
+
+      <div className="p-8 max-w-3xl mx-auto text-center">
+        <h1 className="text-5xl font-bold mb-8 text-white">Search NFT Perks</h1>
+
+        <div className="mb-6">
+          <label className="block text-lg font-medium text-white mb-2">Perk Name</label>
+          <input
+            type="text"
+            className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            value={perkName}
+            onChange={(e) => setPerkName(e.target.value)}
+          />
         </div>
 
-        {/* Type Dropdown */}
-        <div>
-          <label className="block text-lg font-medium text-white mb-2">Type</label>
+          {/* Type Dropdown */}
+          <div>
+          <label className="block text-lg font-medium text-white mb-2">Perk Type</label>
           <select
             className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
             value={selectedType}
@@ -55,20 +99,45 @@ const SearchPage = () => {
           </select>
         </div>
 
-        {/* Checkbox */}
-        <div className="flex items-center">
-          <input
-            type="checkbox"
-            id="isChecked"
-            className="mr-2"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-          />
-          <label htmlFor="isChecked" className="text-lg font-medium text-white">
-            Redeemable
-          </label>
+    
+      
+           {/* Category Dropdown */}
+           <div>
+          <label className="block text-lg font-medium text-white mb-2">Category</label>
+          <select
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">Select Category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
         </div>
-      </div>
+        <div className="mb-6">
+          <label className="block text-lg font-medium text-white mb-2">Asset Address</label>
+          <input
+            type="text"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            value={assetAddress}
+            onChange={(e) => setAssetAddress(e.target.value)}
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-lg font-medium text-white mb-2">Factory Address</label>
+          <input
+            type="text"
+            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            value={factoryAddress}
+            onChange={(e) => setFactoryAddress(e.target.value)}
+          />
+        </div>
+      
+
+    
 
       {/* Text Input */}
       <div className="mb-6">

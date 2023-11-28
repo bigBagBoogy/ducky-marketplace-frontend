@@ -19,6 +19,8 @@
 # misc
 .DS_Store
 *.pem
+bigbagboogy.md
+
 
 # debug
 npm-debug.log*
