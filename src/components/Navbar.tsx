@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
               <Link href="/" className="text-white text-3xl ">
                 Home
               </Link>
-              <Link href="/about" className="text-white text-3xl ">
-                About
+              <Link href="/mint" className="text-white text-3xl ">
+                Mint
               </Link>
               <WalletConnectButton />
             </div>
