@@ -70,8 +70,9 @@ button {
 }
 
 #logo {
-
-width: 50%;
+width: 15%;
+margin-left: 25%;
+margin-bottom: 5%;
 }
 
 a.text-white {
@@ -95,4 +96,20 @@ a.custom-link:hover {
   border-color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
 }
+.input {
+  width: 500px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 300ms ease-in-out;
+}
 
+.input:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow: 1px 1px 20px #969696,
+    -1px -1px 20px aqua;
+}

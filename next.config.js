@@ -1,6 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
 
-module.exports = nextConfig
+  async headers() {
+    return [
+      {
+        source: "/favicon.ico",
+        headers: [
+          {
+            key: "Link",
+            value: '/favicon.ico; rel="icon"',
+          },
+        ],
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;
