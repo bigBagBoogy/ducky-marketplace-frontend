@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   margin: 0;
   padding: 0;
@@ -112,4 +113,11 @@ a.custom-link:hover {
   transform: scale(1.05);
   box-shadow: 1px 1px 20px #969696,
     -1px -1px 20px aqua;
+}
+.light body {
+  background-color: #ffffff;
+  color: #333333;
+}
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+  color: #333333;
 }

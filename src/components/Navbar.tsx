@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import WalletConnectButton from './WalletConnectButton';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
     return (
@@ -9,6 +10,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto">
           <div className="flex items-center justify-between p-0">
             <div className="flex items-center space-x-4">
+            <ThemeToggle />
               <Link href="/" className="text-white font-bold text-lg">
                <img id="logo" src="./ducky_a.png" alt="Logo" />
               </Link>
@@ -23,7 +25,7 @@ const Navbar: React.FC = () => {
               <WalletConnectButton />
             </div>
           </div>
-        </div>
+        </div>        
       </nav>
     );
   };
