@@ -18,9 +18,9 @@ export default function Home() {
       </h1>
       <h2 className="text-3xl font-bold">An NFT Search Page to facilitate dynamic searching of traits, enabling users to effortlessly find redeemable perks they are interested in.</h2>
       <Link href="/search" legacyBehavior>
-      <a className="custom-link px-8 py-4 rounded-md">
+      <button className="button">
         Search
-      </a>
+      </button>
 
     </Link>
     

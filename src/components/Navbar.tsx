@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import WalletConnectButton from './WalletConnectButton';
 import ThemeToggle from './ThemeToggle';
+import { useTheme } from 'next-themes';
 
 const Navbar: React.FC = () => {
+  const { theme } = useTheme();
     return (
-      <nav className="bg-gray-800 p-1">
+      <nav className={`p-1 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'}`}>
         <div className="container mx-auto">
           <div className="flex items-center justify-between p-0">
             <div className="flex items-center space-x-4">
