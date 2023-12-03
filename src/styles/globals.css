@@ -41,7 +41,7 @@ h2 {
   left: 50%;
 }
 .light .card {
-  background-color: #FF7F50
+  background-color: rgb(255, 0, 93);
 }
 #featuredNft {
   width: 100%;
@@ -59,19 +59,19 @@ button {
   margin-top: 5%;
 }
 .light .button {
-  border: 6px solid #FF7F50;
-  color: #FF7F50;
+  border: 6px solid rgb(255, 0, 93);
+  color: rgb(255, 0, 93);
 }
 .button:hover {
   border: 6px solid #2ecc71;
   color: #2ecc71;
 }
 .light .button:hover {
-  border: 6px solid rgb(255, 0, 93);
-  color: rgb(255, 0, 93);
+  border: 6px solid rgb(230, 0, 255);
+  color: rgb(230, 0, 255);
 }
 #connect_button {
-  border: 3px solid rgb(0, 255, 255);
+  border: 5px solid rgb(0, 255, 255);
   color: aqua;
   padding: 4px 20px; 
   border-radius: 10px;
@@ -79,6 +79,10 @@ button {
   font-weight: bold;
   transition: border 0.3s, color 0.3s;
   margin-top: 3%;
+}
+.light #connect_button {
+  border: 5px solid rgb(255, 0, 93);
+  color: rgb(255, 0, 93);
 }
 
 #logo {

@@ -20,7 +20,7 @@ const { theme, setTheme } = useTheme();
         </button>
       ) : (
         <button
-          className=" w-28 rounded-md border-aqua-500 border-4 hover:bg-gray-300"
+          className=" w-28 rounded-md border-red-500 border-4 hover:bg-gray-300"
           onClick={() => setTheme('dark')}
         >
           <Image src="/moon.svg" alt="logo" height={50} width={50} />
