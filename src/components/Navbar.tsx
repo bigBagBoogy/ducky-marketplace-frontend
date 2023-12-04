@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <nav className={`p-2 sm:p-4 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-200'}`}>
+    <nav className="navbar">
   <div className="container mx-auto">
     <div className="flex items-center justify-between">
       <div className="flex items-center space-x-2 sm:space-x-4">

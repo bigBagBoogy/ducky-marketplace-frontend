@@ -25,7 +25,7 @@ const Checkbox = () => {
         <div className="p-8 max-w-screen-xl mx-auto flex items-center"> 
          <div className="flex-1 p-4 flex items-center"> 
          <div className="flex-shrink-0 w-72">
-  {isChecked ? ( <h1 className="text-5xl font-bold mb-0 text-white">Show Perks</h1> ) : ( <h1 className="text-5xl font-bold mb-0 text-white">Show NFTs</h1> )} 
+  {isChecked ? ( <h1 className="text-4xl font-bold mb-0 text-white">Show Perks</h1> ) : ( <h1 className="text-4xl font-bold mb-0 text-white">Show NFTs</h1> )} 
   </div>
     <label className="relative inline-flex items-center cursor-pointer">
       <input

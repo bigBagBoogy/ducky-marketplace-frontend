@@ -12,6 +12,10 @@ body {
   background-position: top; /* Align the top of the image with the top of the screen */
   background-repeat: no-repeat;
 }
+.light body {
+  background-color: #e4decb;
+  color: #333333;
+}
 .header-box { 
   width: 30vw;
 margin-top: 6%;
@@ -123,7 +127,7 @@ a.custom-link:hover {
   width: 400px;
   border: none;
   outline: none;
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 1em;
   color:#000000;
   font-size: 12px;
@@ -139,10 +143,19 @@ a.custom-link:hover {
   box-shadow: 1px 1px 20px #969696,
     -1px -1px 20px aqua;
 }
-.light body {
-  background-color: #ffffff;
-  color: #333333;
-}
+
 .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
   color: #333333;
 }
+.navbar {
+
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;}
+
+.light .navbar {
+  background-color: #e4decb;
+  color: #333333;
+}  
