@@ -13,10 +13,10 @@ export default function Home() {
       <Navbar />
       <FeaturingCard />
       <div className="header-box">
-      <h1 className="text-6xl font-bold">
+      <h1 className="text-5xl font-bold">
           Discover NFTs <br /> with redeemable <br /> perks
       </h1>
-      <h2 className="text-3xl font-bold">An NFT Search Page to facilitate dynamic searching of traits, enabling users to effortlessly find redeemable perks they are interested in.</h2>
+      <h2 className="text-2xl font-bold">An NFT Search Page to facilitate dynamic searching of traits, enabling users to effortlessly find redeemable perks they are interested in.</h2>
       <Link href="/search" legacyBehavior>
       <button className="button">
         Search

@@ -52,7 +52,7 @@ const SearchPage = () => {
   return (
     <>
       <Navbar />
-      <div className="mb-6 absolute" style={{ top: '31%', right: '27%', transform: 'translate(50%, -50%) scale(1.5)' }}>  {/* Checkbox */}
+      <div className="mb-2" >  {/* Checkbox */}
   <div className="relative">
     <div className="flex items-center">
       <input
@@ -62,7 +62,7 @@ const SearchPage = () => {
         checked={isChecked}
         onChange={() => setIsChecked(!isChecked)}
       />
-      <label htmlFor="isChecked" className="text-lg font-medium text-white">
+      <label htmlFor="isChecked" className="text-md font-medium text-white">
         Redeemable
       </label>
     </div>
@@ -70,13 +70,13 @@ const SearchPage = () => {
 </div>
 
       <div className="p-8 max-w-3xl mx-auto text-center">
-        <h1 className="text-5xl font-bold mb-8 text-white">Search NFT Perks</h1>
+        {/* <h1 className="text-3xl font-bold mb-8 text-white">Search NFT Perks</h1> */}
 
         <div className="mb-6">
-          <label className="block text-lg font-medium text-white mb-2">Perk Name</label>
+          <label className="block text-base font-medium text-white mb-2">Perk Name</label>
           <input
             type="text"
-            className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
             value={perkName}
             onChange={(e) => setPerkName(e.target.value)}
           />
@@ -84,9 +84,9 @@ const SearchPage = () => {
 
           {/* Type Dropdown */}
           <div>
-          <label className="block text-lg font-medium text-white mb-2">Perk Type</label>
+          <label className="block text-base font-medium text-white mb-2">Perk Type</label>
           <select
-            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
           >
@@ -103,9 +103,9 @@ const SearchPage = () => {
       
            {/* Category Dropdown */}
            <div>
-          <label className="block text-lg font-medium text-white mb-2">Category</label>
+          <label className="block text-base font-medium text-white mb-2">Category</label>
           <select
-            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -118,19 +118,19 @@ const SearchPage = () => {
           </select>
         </div>
         <div className="mb-6">
-          <label className="block text-lg font-medium text-white mb-2">Asset Address</label>
+          <label className="block text-base font-medium text-white mb-2">Asset Address</label>
           <input
             type="text"
-            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
             value={assetAddress}
             onChange={(e) => setAssetAddress(e.target.value)}
           />
         </div>
         <div className="mb-6">
-          <label className="block text-lg font-medium text-white mb-2">Factory Address</label>
+          <label className="block text-base font-medium text-white mb-2">Factory Address</label>
           <input
             type="text"
-            className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
             value={factoryAddress}
             onChange={(e) => setFactoryAddress(e.target.value)}
           />
@@ -141,17 +141,17 @@ const SearchPage = () => {
 
       {/* Text Input */}
       <div className="mb-6">
-        <label className="block text-lg font-medium text-white mb-2">Search Text</label>
+        <label className="block text-base font-medium text-white mb-2">Search Text</label>
         <input
           type="text"
-          className="mt-1 block w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
       </div>
 
       <button
-        className="border-4 border-aqua-500 hover:border-green-500 text-aqua-500 hover:text-green-500 px-6 py-3 rounded-md text-lg"
+        className="border-4 border-aqua-500 hover:border-green-500 text-aqua-500 hover:text-green-500 px-6 py-3 rounded-md text-base"
         onClick={handleSearch}
       >
         Search

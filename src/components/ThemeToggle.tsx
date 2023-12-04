@@ -13,17 +13,17 @@ const { theme, setTheme } = useTheme();
 <div className="flex justify-center">
       {theme === 'dark' ? (
         <button
-          className="hover:bg-black w-28 rounded-md border-aqua-500 border-4 "
+          className="hover:bg-rose-700 rounded-md border-aqua-500 border-4 "
           onClick={() => setTheme('light')}
         >
-          <Image src="/sun.svg" alt="logo" height={50} width={50} />
+          <Image src="/sun.svg" alt="logo" height={30} width={30} />
         </button>
       ) : (
         <button
-          className=" w-28 rounded-md border-red-500 border-4 hover:bg-gray-300"
+          className="rounded-md border-rose-700 border-4 hover:bg-fuchsia-800"
           onClick={() => setTheme('dark')}
         >
-          <Image src="/moon.svg" alt="logo" height={50} width={50} />
+          <Image src="/moon.svg" alt="logo" height={30} width={30} />
         </button>
       )}
     </div>  );
