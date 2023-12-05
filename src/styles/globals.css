@@ -159,3 +159,7 @@ a.custom-link:hover {
   background-color: #e4decb;
   color: #333333;
 }  
+form {
+  margin: 0;
+  padding: 0;
+}

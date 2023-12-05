@@ -46,8 +46,8 @@ const SearchPage = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
-      selectedCategory: Yup.string().required('Category is required'),
-      selectedType: Yup.string().required('Type is required'),
+      // selectedCategory: Yup.string().required('Category is required'),
+      // selectedType: Yup.string().required('Type is required'),
       searchText: Yup.string().required('Search text is required'),
       perkName: Yup.string().required('Perk Name is required'),
       assetAddress: Yup.string().required('Asset Address is required'),
@@ -63,8 +63,8 @@ const SearchPage = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object({
-          selectedCategory: Yup.string().required('Category is required'),
-          selectedType: Yup.string().required('Type is required'),
+          // selectedCategory: Yup.string().required('Category is required'),
+          // selectedType: Yup.string().required('Type is required'),
           searchText: Yup.string().required('Search text is required'),
           perkName: Yup.string().required('Perk Name is required'),
           assetAddress: Yup.string().required('Asset Address is required'),
