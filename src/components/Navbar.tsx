@@ -19,8 +19,8 @@ const Navbar: React.FC = () => {
         </Link>
       </div>
       <div className="hidden sm:flex space-x-4">
-        <Link href="/" className="text-white text-xl">
-          Home
+        <Link href="/admin" className="text-white text-xl">
+          Login
         </Link>
         <Link href="/mint" className="text-white text-xl">
           Mint

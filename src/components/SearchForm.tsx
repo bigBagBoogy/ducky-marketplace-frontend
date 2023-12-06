@@ -149,7 +149,7 @@ const SearchForm = () => {
      <button
   type="button" // Specify type="button" to prevent default form submission behavior
   onClick={() => formik.handleSubmit()}
-  className=""
+  className="button"
   >
          Search
        </button>

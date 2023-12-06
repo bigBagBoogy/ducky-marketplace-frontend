@@ -45,8 +45,8 @@ const WalletConnectButton: React.FC = () => {
         isConnected ? (
           "Connected! "
         ) : (
-          <button
-  onClick={() => connect()} id="connect_button"
+          <button className="button" 
+  onClick={() => connect()} 
 >
   Connect
 </button>
@@ -55,7 +55,7 @@ const WalletConnectButton: React.FC = () => {
         "Please install metamask"
       )}
 
-      {isConnected ? <button onClick={() => execute()}  className="border border-aqua-500 hover:border-green-500 text-aqua-500 hover:text-green-500 px-4 py-2 rounded-md"
+      {isConnected ? <button className="button" onClick={() => execute()}  className="button border border-aqua-500 hover:border-green-500 text-aqua-500 hover:text-green-500 px-4 py-2 rounded-md"
 >Execute</button> : ""}
     </div>
   );

@@ -14,14 +14,10 @@ const ThemeToggle: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setButtonStyle(
-      theme === 'dark'
-        ? 'rounded-md border-4 border-aqua-500 hover:bg-fuchsia-300'
-        : 'rounded-md border-4 border-rose-700 hover:bg-rose-300'
-    );
-
+    
     // Update image source based on theme
     setImgSrc(theme === 'dark' ? '/sun.svg' : '/moon.svg');
+    // console.log('Image Source:', imgSrc);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -31,10 +27,11 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <div className="flex justify-center">
-      <button className={buttonStyle} onClick={toggleTheme}>
+      <button className="button" onClick={toggleTheme}>
         {imgSrc && (
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Image src={imgSrc} alt="Toggle Theme" height={30} width={30} />
+            <Image src={imgSrc} alt="Toggle Theme" height={40} width={40} />
+
           </div>
         )}
       </button>
