@@ -34,13 +34,24 @@ const SearchPage = () => {
     types: [],
   };
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = async (values: any) => {
     console.log('Searching with:', { values });
-
-    // Use Next.js's router to navigate to the search result page
-    router.push({
-      pathname: '/searchResults', // Update with your actual search result page path
-    });
+    try {
+      const response = await fetch('http://localhost:8000/api/search', {
+        method: 'GET',
+        // You can add headers or other options here
+      });  
+      if (!response.ok) {
+        throw new Error('Failed to fetch search results');
+      }        
+      const searchData = await response.json();  // Assuming the response is in JSON format
+      useRouter().push({
+        pathname: '/searchResults',
+        query: { searchData }, // Pass the retrieved data to the search result page
+      });
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
   };
 
   const formik = useFormik({

@@ -146,12 +146,13 @@ const SearchForm = () => {
     </div>  
      {/* Submit Button */}
      <div className="flex justify-center mt-4">
-        <button
-          onClick={handleSubmit}
-          className=""
-        >
-          Submit
-        </button>
+     <button
+  type="button" // Specify type="button" to prevent default form submission behavior
+  onClick={() => formik.handleSubmit()}
+  className=""
+  >
+         Submit
+       </button>
       </div> 
     </>
   );
