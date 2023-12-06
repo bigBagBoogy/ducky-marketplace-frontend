@@ -230,5 +230,20 @@ form {
 .light .border-dashed {
   border-color: #154c4d;
 }
+/* styles.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translatex(-500px);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+.animate-your-animation {
+  animation: fadeIn 1.0s ease-out; /* Adjust the animation duration and timing function as needed */
+}
 
 
