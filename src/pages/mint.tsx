@@ -43,7 +43,7 @@ const Mint: React.FC = () => {
         <div className="col-span-1 aspect-square">
           <label
             htmlFor="imageInput"
-            className="border-dashed border-4 border-gray-300 rounded-3xl p-8 w-full h-full flex flex-col items-center justify-center"
+            className="border-dashed"
           >
             <input
               type="file"

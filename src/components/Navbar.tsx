@@ -4,9 +4,16 @@ import Link from 'next/link';
 import WalletConnectButton from './WalletConnectButton';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
-const Navbar: React.FC = () => {
+
+const Navbar: React.FC = () => {  
   const { theme } = useTheme();
+  const [imgSrc, setImgSrc] = useState<string>('');
+
+  useEffect(() => {    
+    setImgSrc(theme === 'dark' ? '/ducky_no_canvas.svg' : '/ducky_no_canvas_dark.svg');
+  }, [theme]);
 
   return (
     <nav className="navbar">
@@ -14,9 +21,9 @@ const Navbar: React.FC = () => {
     <div className="flex items-center justify-between">
       <div className="flex items-center space-x-16 sm:space-x-16">
         <ThemeToggle />
-        <Link href="/" className="">
-          <img id="logo" src="./ducky_no_canvas.svg" alt="Logo" className="" />
-        </Link>
+        <Link href="/" as="div">
+              <img id="logo" src={imgSrc} alt="Logo" className="" />
+            </Link>
       </div>
       <div className="hidden sm:flex space-x-4">
         <Link href="/admin" className="text-white text-xl">
