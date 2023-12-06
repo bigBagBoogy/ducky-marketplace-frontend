@@ -15,19 +15,19 @@ const Checkbox = () => {
     { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
     { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
     { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+    { id: 4, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+    { id: 5, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
+    { id: 6, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
+    { id: 7, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+    { id: 8, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
+    { id: 9, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
+    { id: 10, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+    { id: 11, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
+    { id: 12, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
+    { id: 13, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+    { id: 14, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
+    { id: 15, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
+    { id: 16, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
 
     // Add more NFT data as needed
   ];
@@ -39,7 +39,7 @@ const Checkbox = () => {
         <div className="p-8 max-w-screen-xl mx-auto flex items-center"> 
          <div className="flex-1 p-4 flex items-center"> 
          <div className="flex-shrink-0 w-72">
-  {isChecked ? ( <h1 className="text-4xl font-bold mb-0 text-white">Show Perks</h1> ) : ( <h1 className="text-4xl font-bold mb-0 text-white">Show NFTs</h1> )} 
+  {isChecked ? ( <h1 className="text-4xl font-bold mb-0 text-white">Show NFTs</h1> ) : ( <h1 className="text-4xl font-bold mb-0 text-white">Show Perks</h1> )} 
   </div>
     <label className="relative inline-flex items-center cursor-pointer">
       <input
