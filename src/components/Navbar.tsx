@@ -12,10 +12,10 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
   <div className="container mx-auto">
     <div className="flex items-center justify-between">
-      <div className="flex items-center space-x-2 sm:space-x-4">
+      <div className="flex items-center space-x-16 sm:space-x-16">
         <ThemeToggle />
         <Link href="/" className="">
-          <img id="logo" src="./ducky_a.png" alt="Logo" className="" />
+          <img id="logo" src="./ducky_no_canvas.svg" alt="Logo" className="" />
         </Link>
       </div>
       <div className="hidden sm:flex space-x-4">
