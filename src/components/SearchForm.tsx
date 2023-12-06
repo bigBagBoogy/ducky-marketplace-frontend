@@ -48,26 +48,26 @@ const SearchForm = () => {
           </div>
 
           {/* Type Dropdown */}
-          <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Perk Type</label>
-            <select
-              name="selectedType"
-              className="input mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.selectedType}
-            >
-              <option value="">Select Type</option>
-              {formik.values.types.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-            {formik.touched.selectedType && formik.errors.selectedType && (
-              <div className="text-red-500">{formik.errors.selectedType}</div>
-            )}
-          </div>
+<div className="mb-6">
+  <label className="block text-base font-medium text-white mb-2">Perk Type</label>
+  <select
+    name="selectedType"
+    className="input mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+    value={formik.values.selectedType}
+  >
+    <option value="">Select Type</option>
+    {['Type A', 'Type B', 'Type C', 'Type D'].map((type) => (
+      <option key={type} value={type}>
+        {type}
+      </option>
+    ))}
+  </select>
+  {formik.touched.selectedType && formik.errors.selectedType && (
+    <div className="text-red-500">{formik.errors.selectedType}</div>
+  )}
+</div>
 
           {/* Category Dropdown */}
           <div className="mb-6">
@@ -80,16 +80,16 @@ const SearchForm = () => {
               value={formik.values.selectedCategory}
             >
               <option value="">Select Category</option>
-              {formik.values.categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
+              {['Category A', 'Category B', 'Category C', 'Category D'].map((type) => (
+              <option key={type} value={type}>
+              {type}
+              </option>
               ))}
             </select>
-            {formik.touched.selectedCategory && formik.errors.selectedCategory && (
-              <div className="text-red-500">{formik.errors.selectedCategory}</div>
-            )}
-          </div>
+          {formik.touched.selectedType && formik.errors.selectedType && (
+         <div className="text-red-500">{formik.errors.selectedType}</div>
+          )}
+         </div>
         </div>
 
         {/* Right Column */}
@@ -145,13 +145,13 @@ const SearchForm = () => {
     </div>
     </div>  
      {/* Submit Button */}
-     <div className="flex justify-center mt-4">
+     <div className="flex justify-center ">
      <button
   type="button" // Specify type="button" to prevent default form submission behavior
   onClick={() => formik.handleSubmit()}
   className=""
   >
-         Submit
+         Search
        </button>
       </div> 
     </>
