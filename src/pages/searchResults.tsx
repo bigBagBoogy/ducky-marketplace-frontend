@@ -22,7 +22,7 @@ const Checkbox = () => {
   const nftData = [
     { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
     { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
+    { id: 3, title: 'NFT 3', imageUrl: 'https://universalpage.dev/api/ipfs/QmSN1pJ4q11ytuUr9tPtfxycvqQFSLV8DSCBYsHwVmziNN', description: 'Airdrop exposure x2' },
     { id: 4, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
     { id: 5, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
     { id: 6, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
