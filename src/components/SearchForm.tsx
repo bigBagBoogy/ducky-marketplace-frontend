@@ -33,7 +33,7 @@ const SearchForm = () => {
         <div className="flex flex-col">
           {/* Perk Name */}
           <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Perk Name</label>
+            <label className="label block text-base font-medium text-white mb-2">Perk Name</label>
             <input
               type="text"
               name="perkName"
@@ -49,7 +49,7 @@ const SearchForm = () => {
 
           {/* Type Dropdown */}
 <div className="mb-6">
-  <label className="block text-base font-medium text-white mb-2">Perk Type</label>
+  <label className="label block text-base font-medium text-white mb-2">Perk Type</label>
   <select
     name="selectedType"
     className="input mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
@@ -71,7 +71,7 @@ const SearchForm = () => {
 
           {/* Category Dropdown */}
           <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Category</label>
+            <label className="label block text-base font-medium text-white mb-2">Category</label>
             <select
               name="selectedCategory"
               className="input mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base"
@@ -96,7 +96,7 @@ const SearchForm = () => {
         <div className="flex-1">
           {/* Asset Address */}
           <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Asset Address</label>
+            <label className="label block text-base font-medium text-white mb-2">Asset Address</label>
             <input
               type="text"
               name="assetAddress"
@@ -112,7 +112,7 @@ const SearchForm = () => {
 
           {/* Factory Address */}
           <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Factory Address</label>
+            <label className="label block text-base font-medium text-white mb-2">Factory Address</label>
             <input
               type="text"
               name="factoryAddress"
@@ -128,7 +128,7 @@ const SearchForm = () => {
 
           {/* Search Text */}
           <div className="mb-6">
-            <label className="block text-base font-medium text-white mb-2">Search Text</label>
+            <label className="label block text-base font-medium text-white mb-2">Search Text</label>
             <input
               type="text"
               name="searchText"

@@ -245,5 +245,7 @@ form {
 .animate-your-animation {
   animation: fadeIn 1.0s ease-out; /* Adjust the animation duration and timing function as needed */
 }
-
+.light .label {
+  color: rgb(0, 0, 0);
+}
 
