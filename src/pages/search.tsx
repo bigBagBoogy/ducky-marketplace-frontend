@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import SearchForm from '../components/SearchForm';
-import { Formik, useFormik } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 interface FormValues {
@@ -14,9 +14,7 @@ interface FormValues {
   searchText: string;
   perkName: string;
   assetAddress: string;
-  factoryAddress: string;
-  categories: string[];
-  types: string[];
+  factoryAddress: string;  
 }
 
 const SearchPage = () => {
@@ -29,23 +27,25 @@ const SearchPage = () => {
     searchText: '',
     perkName: '',
     assetAddress: '',
-    factoryAddress: '',
-    categories: [],
-    types: [],
+    factoryAddress: '',    
   };
 
   const handleSubmit = async (values: any) => {
     console.log('Searching with:', { values });
     try {
-      const response = await fetch('http://localhost:8000/api/search', {
-        method: 'GET',
-        // You can add headers or other options here
+      const response = await fetch('http://localhost:3001/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
       });  
       if (!response.ok) {
         throw new Error('Failed to fetch search results');
       }        
       const searchData = await response.json();  // Assuming the response is in JSON format
-      useRouter().push({
+      console.log('returned BE searchData:', searchData);
+      router.push({
         pathname: '/searchResults',
         query: { searchData }, // Pass the retrieved data to the search result page
       });
@@ -53,19 +53,6 @@ const SearchPage = () => {
       console.error('Error fetching search results:', error);
     }
   };
-
-  const formik = useFormik({
-    initialValues,
-    validationSchema: Yup.object({
-      // selectedCategory: Yup.string().required('Category is required'),
-      // selectedType: Yup.string().required('Type is required'),
-      searchText: Yup.string().required('Search text is required'),
-      perkName: Yup.string().required('Perk Name is required'),
-      assetAddress: Yup.string().required('Asset Address is required'),
-      factoryAddress: Yup.string().required('Factory Address is required'),
-    }),
-    onSubmit: handleSubmit,
-  });
 
   return (
     <>
