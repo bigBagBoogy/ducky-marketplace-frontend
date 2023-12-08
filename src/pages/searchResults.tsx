@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { useInView } from 'react-intersection-observer';
-
+import nftData from '../../public/LSP8s.json';
 const Checkbox = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [inViewRefs, inViewRefsSetter] = useState<Record<string, boolean>>({});
@@ -12,34 +12,23 @@ const Checkbox = () => {
   };
 
   const handleInViewChange = (id: string, inView: boolean) => {
+    console.log('InView Change:', id, inView);
     inViewRefsSetter((prevInViewRefs) => ({
       ...prevInViewRefs,
       [id]: inView,
     }));
   };
 
-  // Dummy NFT data (replace with actual data)
-  const nftData = [
-    { id: 1, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 2, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 3, title: 'NFT 3', imageUrl: 'https://universalpage.dev/api/ipfs/QmSN1pJ4q11ytuUr9tPtfxycvqQFSLV8DSCBYsHwVmziNN', description: 'Airdrop exposure x2' },
-    { id: 4, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 5, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 6, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 7, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 8, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 9, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 10, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 11, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 12, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 13, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
-    { id: 14, title: 'NFT 2', imageUrl: '/dummy NFTs/robotImage.png', description: 'Early access to CryptoZombiesII' },
-    { id: 15, title: 'NFT 3', imageUrl: '/dummy NFTs/apeImage.png', description: 'Airdrop exposure x2' },
-    { id: 16, title: 'NFT 1', imageUrl: '/dummy NFTs/bearImage.png', description: 'Free ride to the moon with Virgin atlantic' },
+  const transformIpfsUrl = (ipfsUrl: string): string => {
+    const ipfsHash = ipfsUrl.replace('ipfs://', ''); // Remove 'ipfs://' prefix
+    const transformedUrl = `https://universalpage.dev/api/ipfs/${ipfsHash}`;
+    console.log('IPFS URL:', ipfsUrl);
+    console.log('Transformed URL:', transformedUrl);
+        return transformedUrl;
+    
+  };
 
-    // Add more NFT data as needed
-  ];
-
+  
   return (
     <>
       <Navbar />
@@ -76,32 +65,40 @@ const Checkbox = () => {
               onChange: (inView) => handleInViewChange(nft.id.toString(), inView),
             });
 
-            return (
-              <div
-                key={nft.id}
-                className={`bg-gray-800 mb-16 p-6 rounded-md your-tailwind-classes ${
-                  inViewRefs[nft.id.toString()] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
-                }`}
-                ref={ref}
-              >
-                {isChecked ? (
-                  <p className="text-2xl h-56 font-bold text-white mb-4">{nft.description}</p>
-                ) : (
+            console.log('Image URL:', nft.value.LSP4Metadata.images && nft.value.LSP4Metadata.images[0] && nft.value.LSP4Metadata.images[0][2] && nft.value.LSP4Metadata.images[0][2].url);
+             
+            console.log(transformIpfsUrl(nft.value.LSP4Metadata.images[0][2].url));
+
+          return (
+            <div
+              key={nft.id}
+              className={`bg-gray-800 mb-16 p-6 rounded-md your-tailwind-classes ${
+                inViewRefs[nft.id.toString()] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
+              }`}
+              ref={ref}
+            >
+              {isChecked ? (
+                <p className="text-2xl h-56 font-bold text-white mb-4">{nft.value.LSP4Metadata.description}</p>
+              ) : (
+                nft.value.LSP4Metadata.images &&
+                nft.value.LSP4Metadata.images[0] &&
+                nft.value.LSP4Metadata.images[0][2] && (
                   <img
-                    src={nft.imageUrl}
-                    alt={nft.title}
+                    src={transformIpfsUrl(nft.value.LSP4Metadata.images[0][2].url)}
+                    alt={nft.value.LSP4Metadata.description}
                     className="w-full h-56 object-cover mb-4 rounded-md"
                   />
-                )}
-                <h2 className="text-lg font-bold text-white mb-2">{nft.title}</h2>
-                {/* Additional NFT details can be added here */}
-              </div>
-            );
-          })}
-        </div>
+                )
+              )}
+              <h2 className="text-lg font-bold text-white mb-2">{nft.value.LSP4Metadata.name}</h2>
+              {/* Additional NFT details can be added here */}
+            </div>
+          );
+        })}
       </div>
-    </>
-  );
+    </div>
+  </>
+);
 };
 
 export default Checkbox;
