@@ -1,8 +1,14 @@
+// pages/viewYourAssets.tsx
+
 import React from 'react'
+import GetAndDisplayAssets from '../components/GetAndDisplayAssets';
 
 const viewYourAssets = () => {
   return (
-    <div>viewYourAssets</div>
+    <>
+    <h3>viewYourAssets</h3>
+    <GetAndDisplayAssets />
+    </> 
   )
 }
 
