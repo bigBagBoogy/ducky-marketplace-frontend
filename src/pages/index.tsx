@@ -4,13 +4,17 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar';
 import FeaturingCard from '@/components/FeaturingCard';
+import { useState } from "react";
+import { ethers } from "ethers";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [signer, setSigner] = useState<ethers.Signer | null>(null);
+
   return (
     <main>
-      <Navbar />
+      <Navbar setSigner={setSigner} />
       <FeaturingCard />
       <div className="header-box">
       <h1 className="text-5xl font-bold">

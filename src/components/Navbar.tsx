@@ -5,9 +5,13 @@ import WalletConnectButton from './WalletConnectButton';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { ethers } from 'ethers';
 
+interface NavbarProps {
+  setSigner: (signer: ethers.Signer) => void;
+}
 
-const Navbar: React.FC = () => {  
+const Navbar: React.FC<NavbarProps> = ({ setSigner }) => {
   const { theme } = useTheme();
   const [imgSrc, setImgSrc] = useState<string>('');
 
@@ -32,8 +36,11 @@ const Navbar: React.FC = () => {
         <Link href="/mint" className="text-white text-xl">
           Mint
         </Link>
-        <WalletConnectButton />
-      </div>
+        <Link href="/viewYourAssets" className="text-white text-xl">
+          View your assets
+        </Link>
+        <WalletConnectButton setSigner={setSigner} />
+              </div>
       {/* Add a responsive menu for smaller screens */}
       <div className="sm:hidden">
         <button className="text-white text-xl">

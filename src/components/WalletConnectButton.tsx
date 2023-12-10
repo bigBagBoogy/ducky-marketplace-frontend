@@ -1,11 +1,10 @@
-
+// components/WalletConnectButton.tsx
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 
-const WalletConnectButton: React.FC = () => {
-  const [isConnected, setIsConnected] = useState(false);
+const WalletConnectButton: React.FC<WalletConnectButtonProps> = ({ setSigner }) => {  const [isConnected, setIsConnected] = useState(false);
   const [hasUpBrowserExtension, setHasUpBrowserExtension] = useState(false);
-  const [signer, setSigner] = useState(undefined);
+ 
 
   useEffect(() => { //@ts-ignore
     if (typeof window.lukso !== "undefined") {
@@ -30,8 +29,8 @@ const WalletConnectButton: React.FC = () => {
 
   async function execute() {//@ts-ignore
     if (typeof window.lukso !== "undefined") {
-      try {
-        console.log("signer can execute if we log signer here: ", signer);
+      try {//@ts-ignore
+        console.log("signer can execute if we log signer here: ", setSigner);
       } catch (error) {
         console.log(error);
       }
@@ -55,8 +54,7 @@ const WalletConnectButton: React.FC = () => {
         "Please install metamask"
       )}
 
-      {isConnected ? <button className="button" onClick={() => execute()}  className="button border border-aqua-500 hover:border-green-500 text-aqua-500 hover:text-green-500 px-4 py-2 rounded-md"
->Execute</button> : ""}
+      {isConnected ? <button className="button" onClick={() => execute()}  >Execute</button> : ""}
     </div>
   );
 }
