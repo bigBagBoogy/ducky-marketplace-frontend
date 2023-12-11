@@ -43,7 +43,7 @@ const Assets: React.FC<ProfileProps> = () => {
 
         try {
           const data = await erc725js.fetchData('LSP5ReceivedAssets[]');
-          console.log('Data received:', data);
+          // console.log('Data received:', data);
           setAssetData(data as any); // Adjust the type as per your schema
         } catch (error) {
           console.error("Error fetching profile data:", error);
@@ -60,13 +60,13 @@ const Assets: React.FC<ProfileProps> = () => {
     fetchData();
   }, [address]);
 
-  if (assetData) {   
-    // Perform additional operations on assetData.value if needed
-    assetData.value.forEach((asset, index) => {
-      console.log("Asset Value:", asset);
-      // Run your extra function here if needed    
-    });
-  }
+  // if (assetData) {   
+  //   // Perform additional operations on assetData.value if needed
+  //   assetData.value.forEach((asset, index) => {
+  //     console.log("Asset Value:", asset);
+  //     // Run your extra function here if needed    
+  //   });
+  // }
 
   // return the JSX code to render the profile data
   return (
@@ -75,11 +75,11 @@ const Assets: React.FC<ProfileProps> = () => {
         // show a loading message
         <div>Loading Asset data...</div>
       ) : assetData ? (  <>    
-<p>{JSON.stringify(assetData.key)}</p>
+{/* <p>{JSON.stringify(assetData.key)}</p>
 <p >{JSON.stringify(assetData.name)}</p>
 {assetData.value.map((asset, index) => (
       <p key={index}>{JSON.stringify(asset)}</p>
-    ))}
+    ))} */}
 <ExtractedAssetData assetValues={assetData.value} />
 </>
       ) : (
