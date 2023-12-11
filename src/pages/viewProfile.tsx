@@ -1,4 +1,4 @@
-// ViewYourAssets.tsx
+// ViewProfile.tsx
 
 import { ERC725, ERC725JSONSchema } from '@erc725/erc725.js';
 import lsp3ProfileSchema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json';

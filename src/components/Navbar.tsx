@@ -36,9 +36,12 @@ const Navbar: React.FC<NavbarProps> = ({ setSigner }) => {
         <Link href="/mint" className="text-white text-xl">
           Mint
         </Link>
-        <Link href="/viewYourAssets" className="text-white text-xl">
-          View your assets
-        </Link>        
+        <Link href="/viewProfile" className="text-white text-xl">
+          View your Profile
+        </Link>   
+        <Link href="/viewAssets" className="text-white text-xl">
+          View your Assets
+        </Link>     
         <WalletConnectButton setSigner={setSigner} />
               </div>
       {/* Add a responsive menu for smaller screens */}
