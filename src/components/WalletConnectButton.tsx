@@ -1,6 +1,7 @@
 // components/WalletConnectButton.tsx
 import { ethers, Signer } from "ethers";
 import { useEffect, useState } from "react";
+import { useAddress } from './AddressContext';
 
 interface WalletConnectButtonProps {
   setSigner: (signer: ethers.Signer) => void;
@@ -8,6 +9,7 @@ interface WalletConnectButtonProps {
 
 const WalletConnectButton: React.FC<WalletConnectButtonProps> = ({ setSigner }) => {  const [isConnected, setIsConnected] = useState(false);
   const [hasUpBrowserExtension, setHasUpBrowserExtension] = useState(false);
+  const { setAddress } = useAddress();
  
 
   useEffect(() => { //@ts-ignore
@@ -25,6 +27,8 @@ const WalletConnectButton: React.FC<WalletConnectButtonProps> = ({ setSigner }) 
         const signer: ethers.Signer = await provider.getSigner();
                 // pass the signer to the setSigner function
         setSigner(signer);
+        const address: string = await signer.getAddress(); // Set the address in the context
+        setAddress(address);
         console.log("signer can execute if we log signer here: ", signer); // use it here
       } catch (e) {
         console.log(e);
