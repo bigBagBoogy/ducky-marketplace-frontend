@@ -6,10 +6,8 @@ import React, { useState, useEffect } from 'react';
 import { useAddress } from '../components/AddressContext';
 import { ethers } from 'ethers';
 import erc725schema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json';
+import 'isomorphic-fetch';
 
-const RPC_ENDPOINT = 'https://rpc.testnet.lukso.gateway.fm';
-const IPFS_GATEWAY = 'https://api.universalprofile.cloud/ipfs';
-const SAMPLE_PROFILE_ADDRESS = '0x9139def55c73c12bcda9c44f12326686e3948634';
 
 interface ProfileProps {
   address: string;
@@ -23,6 +21,9 @@ const Profile: React.FC<ProfileProps> = () => {
 
   // define the ProfileData type alias
 type ProfileData = {
+  key: string;
+  name: string;
+  value: {
   LSP3Profile: {
     name: string;
     description: string;
@@ -43,43 +44,43 @@ type ProfileData = {
     address: string;
   };
 };
+};
 
 
 
   // create an effect hook to fetch the profile data
   useEffect(() => {
-    // check if the address is valid
-    if (address) {
-      console.log('Fetching data for address:', address); 
-      // Fetching data for address: 0x3F0350EaFc25Cc9185a77394B7E2440ec002e466  = correct
-      // create an instance of the ERC725 class
-      const erc725js = new ERC725(
-        lsp3ProfileSchema as ERC725JSONSchema[],
-        address,
-        'https://rpc.testnet.lukso.gateway.fm',
-        {
-          ipfsGateway: 'https://api.universalprofile.cloud/ipfs',
-        },
-      );
-      console.log("erc725js object: ",erc725js);
-      // use the fetchData() function to fetch the profile data
-      erc725js.fetchData().then(
-        (data) => {
-          console.log('Data received:', data);//@ts-ignore
-          setProfileData(data as typeof data);
-          setLoading(false);
-        },
-        (error) => {
+    const fetchData = async () => {
+      if (address) {
+        console.log('Fetching data for address:', address);
+        const erc725js = new ERC725(
+          lsp3ProfileSchema as ERC725JSONSchema[],
+          address,
+          'https://rpc.testnet.lukso.gateway.fm',
+          {
+            ipfsGateway: 'https://api.universalprofile.cloud/ipfs',
+          },
+        );
+
+        try {
+          const data = await erc725js.fetchData('LSP3Profile');
+          console.log('Data received:', data);
+          setProfileData(data as any); // Adjust the type as per your schema
+        } catch (error) {
           console.error("Error fetching profile data:", error);
+          // You can check the type of error here or handle it as needed.
+        } finally {
           setLoading(false);
-          // Optionally, you can set an error state to display an error message to the user.
         }
-      );
-    } else {
-      console.log('Invalid address: undefined');
-      setLoading(false); // Set loading to false since there's no address to fetch
-    }
+      } else {
+        console.log('Invalid address: undefined');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [address]);
+
 
   // return the JSX code to render the profile data
   return (
@@ -90,8 +91,8 @@ type ProfileData = {
       ) : profileData ? (
         // show the profile data
         <div>
-          <h1>{profileData.LSP3Profile.name}</h1>
-          <p>{profileData.LSP3Profile.description}</p>
+          <h1 className="text-3xl font-bold mb-4">{profileData?.value?.LSP3Profile?.name}</h1>
+          <p>{profileData?.value?.LSP3Profile?.description}</p>
           {/* ... */}
         </div>
       ) : (
