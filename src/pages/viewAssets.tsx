@@ -7,6 +7,7 @@ import { useAddress } from '../components/AddressContext';
 import { ethers } from 'ethers';
 import erc725schema from '@erc725/erc725.js/schemas/LSP3ProfileMetadata.json';
 import 'isomorphic-fetch';
+import ExtractedAssetData from '../components/ExtractedAssetData';
 
 
 interface ProfileProps {
@@ -59,6 +60,14 @@ const Assets: React.FC<ProfileProps> = () => {
     fetchData();
   }, [address]);
 
+  if (assetData) {   
+    // Perform additional operations on assetData.value if needed
+    assetData.value.forEach((asset, index) => {
+      console.log("Asset Value:", asset);
+      // Run your extra function here if needed    
+    });
+  }
+
   // return the JSX code to render the profile data
   return (
     <div>
@@ -71,6 +80,7 @@ const Assets: React.FC<ProfileProps> = () => {
 {assetData.value.map((asset, index) => (
       <p key={index}>{JSON.stringify(asset)}</p>
     ))}
+<ExtractedAssetData assetValues={assetData.value} />
 </>
       ) : (
         // handle the case where no data is available
