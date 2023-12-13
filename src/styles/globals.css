@@ -44,6 +44,15 @@ h2 {
   top: 30%;
   left: 50%;
 }
+.card-small {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  overflow: hidden; 
+  border-radius: 25px;  
+  top: 30%;
+  left: 50%;
+}
 .light .card {
   background-color: #154c4d;
 }

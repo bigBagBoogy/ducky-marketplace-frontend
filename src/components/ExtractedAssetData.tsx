@@ -89,16 +89,16 @@ const handleInViewChange = useCallback((id: string, inView: boolean) => {
         <div className="grid grid-cols-4 gap-8">
           {/* Map through the LSP4Metadata array */}
           {LSP4Metadata &&
-  LSP4Metadata.map((metadata, index) => (
-    <InViewHandler key={`${metadata.key}-${index}`} id={metadata.key} onInViewChange={handleInViewChange}>
-      <div
+           LSP4Metadata.map((metadata, index) => (
+           <InViewHandler key={`${metadata.key}-${index}`} id={metadata.key} onInViewChange={handleInViewChange}>
+           <div
         key={index}
-        className={`max-w-md mx-auto bg-gray-500 rounded-md overflow-hidden shadow-md m-4 ${
+        className={`bg-gray-800 mb-16 p-6 rounded-md your-tailwind-classes ${
           inViewRefs[metadata.key] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
         }`}
         >
                   <img
-                    className="w-full h-64 object-cover"
+                    className="w-full h-56 object-cover mb-4 rounded-md"
                     src={transformIpfsUrl(metadata?.value?.LSP4Metadata?.images?.[0]?.[0]?.url)}
                     alt={`Asset ${index + 1}`}
                   />
