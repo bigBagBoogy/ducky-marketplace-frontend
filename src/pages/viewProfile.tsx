@@ -105,7 +105,7 @@ const Profile: React.FC<ProfileProps> = () => {
         <div>Loading profile data...</div>
       ) : profileData ? (
         // show the profile data
-        <div className="max-w-4xl mx-auto mt-8 p-4 bg-gray-500 rounded-lg shadow-md">
+        <div className="max-w-4xl mx-auto mt-8 p-4 bg-gray-700 rounded-lg shadow-md">
   <div className="flex items-center">
     <div className="flex-shrink-0">
       <img

@@ -69,29 +69,26 @@ const ExtractedAssetData: React.FC<ExtractedAssetDataProps> = ({ assetValues }) 
 
   return (
     <div>
-      <p>Extracted Asset Data:</p>
-      {LSP4Metadata && (
-        <div>
-          {/* Render using LSP4Metadata */}
-          {LSP4Metadata.map((metadata, index) => (
-            <div key={index} className="max-w-md mx-auto bg-grey rounded-md overflow-hidden shadow-md m-4">
-              {/* Render metadata for each asset */}
-              <img
-                className="w-full h-64 object-cover"
-                src={transformIpfsUrl(metadata?.value?.LSP4Metadata?.images?.[0]?.[0]?.url)}
-               
-                alt={`Asset ${index + 1}`}
-              />
-              <div className="p-4">
-                <p className="text-xl font-bold mb-2">Asset {index + 1}</p>
-                <p className="text-gray-700">{metadata.assetDescription}</p>
+<h2 className="text-2xl font-bold mb-2 text-center">Your Assets:</h2>
+      <div className="p-8 max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-4 gap-8">
+          {LSP4Metadata &&
+            LSP4Metadata.map((metadata, index) => (
+              <div key={index} className="max-w-md mx-auto bg-gray-500 rounded-md overflow-hidden shadow-md m-4">
+                <img
+                  className="w-full h-64 object-cover"
+                  src={transformIpfsUrl(metadata?.value?.LSP4Metadata?.images?.[0]?.[0]?.url)}
+                  alt={`Asset ${index + 1}`}
+                />
+                <div className="p-4">
+                  <p className="text-xl font-bold mb-2">Asset {index + 1}</p>
+                  <p className="">{metadata?.value?.LSP4Metadata?.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
-      )}
+      </div>
     </div>
   );
-};
-
+            } 
 export default ExtractedAssetData;

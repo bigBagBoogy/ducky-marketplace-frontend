@@ -8,8 +8,9 @@ import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
 interface NavbarProps {
-  setSigner: (signer: ethers.Signer) => void;
+  setSigner?: (signer: ethers.Signer) => void;
 }
+
 
 const Navbar: React.FC<NavbarProps> = ({ setSigner }) => {
   const { theme } = useTheme();
@@ -41,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSigner }) => {
         </Link>   
         <Link href="/viewAssets" className="text-white text-xl">
           View your Assets
-        </Link>     
+        </Link>  {/* @ts-ignore */}   
         <WalletConnectButton setSigner={setSigner} />
               </div>
       {/* Add a responsive menu for smaller screens */}
