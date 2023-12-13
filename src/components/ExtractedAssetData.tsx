@@ -1,6 +1,5 @@
 // @ts-nocheck
 // ExtractedAssetData.tsx
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
 import { ERC725 } from '@erc725/erc725.js';
@@ -8,6 +7,8 @@ import { useAddress } from '../components/AddressContext';
 import LSP4Schema from '@erc725/erc725.js/schemas/LSP4DigitalAsset.json';
 import 'isomorphic-fetch';
 import InViewHandler from '../components/InViewHandler';
+import Checkbox from '../components/Checkbox';
+
 
 // Static variables
 const RPC_ENDPOINT = 'https://rpc.testnet.lukso.gateway.fm';
@@ -26,7 +27,7 @@ type AssetInformation = {
 interface ExtractedAssetDataProps {
   assetValues: string[];
 }
-
+ 
 // Define fetchAssetData at the top level
 async function fetchAssetData(assetAddress: string) {
   try {
@@ -43,6 +44,7 @@ const ExtractedAssetData: React.FC<ExtractedAssetDataProps> = ({ assetValues }) 
   const { address } = useAddress();
   const [LSP4Metadata, setLSP4Metadata] = useState<AssetInformation | null>(null);
   const [inViewRefs, setInViewRefs] = useState<Record<string, boolean>>({});
+  const [isChecked, setIsChecked] = useState(false);
 
 // In-view change handler
 const handleInViewChange = useCallback((id: string, inView: boolean) => {
@@ -80,11 +82,19 @@ const handleInViewChange = useCallback((id: string, inView: boolean) => {
     const transformedUrl = `https://universalpage.dev/api/ipfs/${ipfsHash}`;
     return transformedUrl;
   };
+
+   // Checkbox change handler
+   const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-2 text-center">Your Assets:</h2>
+     <h2 className="text-4xl font-bold mb-2 text-center">Your Assets:</h2>
+      {/* Checkbox component */}
+     <Checkbox handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} />
       <div className="p-8 max-w-screen-xl mx-auto">
         <div className="grid grid-cols-4 gap-4">
           {/* Map through the LSP4Metadata array */}
@@ -97,14 +107,19 @@ const handleInViewChange = useCallback((id: string, inView: boolean) => {
           inViewRefs[metadata.key] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
         }`}
         >
+          {isChecked ? (
+                  // Display description if checkbox is checked
+                  <p className="">{metadata?.value?.LSP4Metadata?.description}</p>
+                ) : (
+                  // Display image if checkbox is not checked
+                
                   <img
                     className="w-full h-56 object-cover mb-4 rounded-lg"
                     src={transformIpfsUrl(metadata?.value?.LSP4Metadata?.images?.[0]?.[0]?.url)}
                     alt={`Asset ${index + 1}`}
-                  />
+                  />)}
                   <div className="p-4">
                     <p className="text-xl font-bold mb-2">Asset {index + 1}</p>
-                    <p className="">{metadata?.value?.LSP4Metadata?.description}</p>
                   </div>
                 </div>
               </InViewHandler>
