@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSigner }) => {
     <div className="flex items-center justify-between">
       <div className="flex items-center space-x-16 sm:space-x-16">
         <ThemeToggle />
-        <Link href="/" as="div">
+        <Link href="/">
               <img id="logo" src={imgSrc} alt="Logo" className="" />
             </Link>
       </div>

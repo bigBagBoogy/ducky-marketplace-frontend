@@ -68,7 +68,7 @@ const Assets: React.FC<ProfileProps> = () => {
   //   });
   // }
 
-  // return the JSX code to render the profile data
+  // return the JSX code to render the Asset data
   return (
     <div>
       {loading ? (
