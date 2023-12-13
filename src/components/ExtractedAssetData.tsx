@@ -103,18 +103,20 @@ const handleInViewChange = useCallback((id: string, inView: boolean) => {
            <InViewHandler key={`${metadata.key}-${index}`} id={metadata.key} onInViewChange={handleInViewChange}>
            <div
         key={index}
-        className={`bg-gray-600 mb-16 p-2 rounded-xl your-tailwind-classes ${
+        className={`nft-card-div bg-gray-600 mb-8 p-2 rounded-xl overflow-hidden shadow-md m-4 ${
           inViewRefs[metadata.key] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
         }`}
         >
           {isChecked ? (
                   // Display description if checkbox is checked
-                  <p className="">{metadata?.value?.LSP4Metadata?.description}</p>
+                 <p className="LSP8description overflow-hidden h-56 p-2 bg-gray-500 hover:overflow-y-scroll scrollbar-hide shadow-xl rounded-md">
+                   {metadata?.value?.LSP4Metadata?.description}
+                 </p>
                 ) : (
                   // Display image if checkbox is not checked
                 
                   <img
-                    className="w-full h-56 object-cover mb-4 rounded-lg"
+                    className="NFT-image w-full h-56 object-cover p-2 rounded-lg"
                     src={transformIpfsUrl(metadata?.value?.LSP4Metadata?.images?.[0]?.[0]?.url)}
                     alt={`Asset ${index + 1}`}
                   />)}

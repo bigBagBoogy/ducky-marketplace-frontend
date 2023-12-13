@@ -257,4 +257,16 @@ form {
 .light .label {
   color: rgb(0, 0, 0);
 }
+.scrollbar-hide {
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0.5rem; /* width of the scrollbar */
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background-color: transparent; /* color of the thumb */
+}
 
