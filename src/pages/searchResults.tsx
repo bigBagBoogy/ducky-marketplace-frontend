@@ -49,7 +49,7 @@ const handleInViewChange = useCallback((id: string, inView: boolean) => {
             <InViewHandler key={nft.id} id={nft.id.toString()} onInViewChange={handleInViewChange}>
               {/* Individual grid item */}
               <div
-                className={`bg-gray-800 mb-16 p-6 rounded-md your-tailwind-classes ${
+                className={`bg-gray-600 mb-16 p-6 rounded-xl your-tailwind-classes ${
                   inViewRefs[nft.id.toString()] ? 'animate-your-animation' : 'opacity-0 translate-y-20'
                 }`}
               >
