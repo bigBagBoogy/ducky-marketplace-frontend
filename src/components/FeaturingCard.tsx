@@ -5,6 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const FeaturingCard: React.FC = () => {
   const images = [
+    '/dummy NFTs/ducky full.png',
+    '/ducky_no_canvas_dark.svg',
     '/dummy NFTs/bearImage.png',
     '/dummy NFTs/robotImage.png',
     '/dummy NFTs/apeImage.png',
